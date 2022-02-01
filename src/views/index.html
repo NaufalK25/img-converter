@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Converter</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script defer type="text/javascript" src="js/index.js"></script>
+    </head>
+    <body>
+        <main>
+            <h1>Image Converter</h1>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <label for="from-ext">From</label>
+                <select name="from-ext" id="from-ext" autofocus>
+                    <option selected disabled>--Choose image type--</option>
+                    <option value="BMP">BMP</option>
+                    <option value="GIF">GIF</option>
+                    <option value="JPEG">JPEG</option>
+                    <option value="PNG">PNG</option>
+                    <option value="TIFF">TIFF</option>
+                </select>
+                <label for="to-ext">To</label>
+                <select name="to-ext" id="to-ext" disabled>
+                    <option selected disabled>--Choose image type--</option>
+                    <option value="BMP">BMP</option>
+                    <option value="GIF">GIF</option>
+                    <option value="JPEG">JPEG</option>
+                    <option value="PNG">PNG</option>
+                    <option value="TIFF">TIFF</option>
+                </select>
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="image" disabled />
+                <button type="submit" id="convert" disabled>Convert</button>
+            </form>
+        </main>
+    </body>
+</html>

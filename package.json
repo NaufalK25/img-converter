@@ -15,7 +15,7 @@
         "converter"
     ],
     "author": "NaufalK25",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "dependencies": {
         "dotenv": "^15.0.0",
         "express": "^4.17.2",

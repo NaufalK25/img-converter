@@ -71,3 +71,11 @@ fileInput.addEventListener("change", (): void => {
     convertButton.classList.remove(...['text-gray-500', 'bg-gray-100', 'border-gray-500']);
     convertButton.classList.add(...['cursor-pointer', 'border-black', 'hover:bg-black', "hover:text-white"]);
 });
+
+const closeFlashMsg = <HTMLSpanElement>document.querySelector('span#close-flash-msg');
+
+closeFlashMsg.addEventListener('click', (): void => {
+    const flashMsg = <HTMLDivElement>document.querySelector('article#flash-msg');
+    flashMsg.classList.remove(...['flex', 'gap-x-3', 'bg-red-300', 'bg-green-300', 'rounded', 'p-2', 'border', 'border-red-300', 'border-green-300']);
+    flashMsg.classList.add('hidden');
+})

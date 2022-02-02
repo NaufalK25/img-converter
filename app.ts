@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import express, { Request, Response } from 'express';
+import express from 'express';
 import morgan from 'morgan';
 import { baseRoutes } from './src/routes/baseRoutes';
 
@@ -13,6 +13,7 @@ const baseUrl = `${process.env.BASE_URL || 'http://localhost'}:${port}`;
 // Middleware
 app.use(morgan('dev'));
 app.use(express.static('public'));
+app.use(express.static('dist/public'));
 app.use('/uploads', express.static('uploads'));
 
 // Routes

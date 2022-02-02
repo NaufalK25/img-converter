@@ -1,13 +1,13 @@
-const fromExt = document.querySelector("select#from-ext");
-const toExt = document.querySelector("select#to-ext");
-const fileInput = document.querySelector("input#image");
-const convertButton = document.querySelector("button#convert");
+const fromExt = <HTMLSelectElement>document.querySelector("select#from-ext");
+const toExt = <HTMLSelectElement>document.querySelector("select#to-ext");
+const fileInput = <HTMLInputElement>document.querySelector("input#image");
+const convertButton = <HTMLButtonElement>document.querySelector("button#convert");
 
-fromExt.addEventListener("change", () => {
+fromExt.addEventListener("change", (): void => {
     const fromExtValue = fromExt.value;
     fileInput.accept = `.${fromExtValue.toLowerCase()}`;
     const toExtOptions = toExt.querySelectorAll("option");
-    toExtOptions.forEach((option) => {
+    toExtOptions.forEach((option: HTMLOptionElement): void => {
         if (option.innerText !== "--Choose image type--") {
             option.disabled = option.value === fromExtValue;
         }
@@ -15,9 +15,9 @@ fromExt.addEventListener("change", () => {
     toExt.disabled = false;
 });
 
-toExt.addEventListener("change", () => {
+toExt.addEventListener("change", (): void => {
     const fromExtOptions = fromExt.querySelectorAll("option");
-    fromExtOptions.forEach((option) => {
+    fromExtOptions.forEach((option: HTMLOptionElement): void => {
         if (option.innerText !== "--Choose image type--") {
             option.disabled = option.value === toExt.value;
         }
@@ -25,6 +25,6 @@ toExt.addEventListener("change", () => {
     fileInput.disabled = false;
 });
 
-fileInput.addEventListener("change", () => {
+fileInput.addEventListener("change", ():void => {
     convertButton.disabled = false;
 });

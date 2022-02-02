@@ -8,11 +8,16 @@
         <script defer type="text/javascript" src="js/index.js"></script>
     </head>
     <body>
+        <header>
+            <nav>
+                <a href="/">Image Converter</a>
+            </nav>
+        </header>
         <main>
             <h1>Image Converter</h1>
             <form action="/" method="POST" enctype="multipart/form-data">
-                <label for="from-ext">From</label>
-                <select name="from-ext" id="from-ext" autofocus>
+                <label for="from-ext" class="cursor-pointer">From</label>
+                <select name="from-ext" id="from-ext" class="cursor-pointer" autofocus>
                     <option selected disabled>--Choose image type--</option>
                     <option value="BMP">BMP</option>
                     <option value="GIF">GIF</option>
@@ -20,8 +25,8 @@
                     <option value="PNG">PNG</option>
                     <option value="TIFF">TIFF</option>
                 </select>
-                <label for="to-ext">To</label>
-                <select name="to-ext" id="to-ext" disabled>
+                <label for="to-ext" class="cursor-pointer">To</label>
+                <select name="to-ext" id="to-ext" class="cursor-pointer" disabled>
                     <option selected disabled>--Choose image type--</option>
                     <option value="BMP">BMP</option>
                     <option value="GIF">GIF</option>
@@ -29,9 +34,9 @@
                     <option value="PNG">PNG</option>
                     <option value="TIFF">TIFF</option>
                 </select>
-                <label for="image">Upload Image</label>
-                <input type="file" id="image" name="image" disabled />
-                <button type="submit" id="convert" disabled>Convert</button>
+                <label for="image" class="cursor-pointer">Upload Image</label>
+                <input type="file" id="image" name="image" class="cursor-pointer" disabled />
+                <button type="submit" id="convert" class="cursor-pointer" disabled>Convert</button>
             </form>
         </main>
     </body>

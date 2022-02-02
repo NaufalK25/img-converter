@@ -6,6 +6,7 @@
     "scripts": {
         "tsw": "tsc -w",
         "lint": "eslint . --ext .ts",
+        "tw-index": "tailwindcss -i ./public/css/input.css -o ./dist/public/css/index.css --watch",
         "dev": "tsc && tsnd --respawn --pretty --transpile-only app.ts",
         "start": "tsc && ts-node app.ts",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,6 +33,7 @@
         "@typescript-eslint/parser": "^5.10.1",
         "eslint": "^8.8.0",
         "morgan": "^1.10.0",
+        "tailwindcss": "^3.0.18",
         "ts-node": "^10.4.0",
         "ts-node-dev": "^1.1.8",
         "typescript": "^4.5.5"

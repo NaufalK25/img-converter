@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Image Converter</title>
+        <title><%= title %></title>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script defer type="text/javascript" src="js/index.js"></script>
     </head>
@@ -22,7 +22,14 @@
             </nav>
         </header>
         <main class="flex items-center flex-col py-10 flex-1">
-            <section id="convert-form">
+            <% if (msg) { %>
+            <article
+                class="<%= (error) ? 'bg-red-300' : 'bg-green-300' %> rounded p-2 border <%= (error) ? 'border-red-300' : 'border-green-300' %>"
+            >
+                <%= msg %>
+            </article>
+            <% } %>
+            <section id="convert-form" class="py-3">
                 <h1 class="font-bold">Image Converter</h1>
                 <form
                     action="/"

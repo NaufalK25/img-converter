@@ -16,6 +16,8 @@ export const baseRoutes = (app: Express): void => {
         .get((req: Request, res: Response): void => {
             res.render('index', {
                 title: 'Image Converter',
+                msg: undefined,
+                error: undefined,
                 fromExt: undefined,
                 toExt: undefined,
                 convertedFile: undefined,
@@ -27,30 +29,51 @@ export const baseRoutes = (app: Express): void => {
             const fromPath = `./uploads/from/${req.file?.originalname}`;
             const convertedFile = req.file?.originalname.replace(/\..+$/i, `.${toExt.toLowerCase()}`);
             const toPath = `./uploads/to/${convertedFile}`;
+            let error = false;
+            let msg = 'Image converted successfully!';
             Jimp.read(fromPath, (err: Error | null, image: Jimp): void => {
-                if (err) throw err;
+                if (err) {
+                    msg = err.message;
+                    error = true;
+                }
                 image.getBuffer(`image/${fromExt.toLowerCase()}`, (err: Error | null, buffer: Buffer): void => {
-                    if (err) throw err;
+                    if (err) {
+                        msg = err.message;
+                        error = true;
+                    }
                     Jimp.read(buffer, (err: Error | null, image: Jimp): void => {
-                        if (err) throw err;
+                        if (err) {
+                            msg = err.message;
+                            error = true;
+                        }
                         image.getBuffer(`image/${toExt.toLowerCase()}`, (err: Error | null, buffer: Buffer): void => {
-                            if (err) throw err;
+                            if (err) {
+                                msg = err.message;
+                                error = true;
+                            }
                             Jimp.read(buffer, (err: Error | null, image: Jimp): void => {
-                                if (err) throw err;
+                                if (err) {
+                                    msg = err.message;
+                                    error = true;
+                                }
                                 image.write(toPath, (err: Error | null): void => {
-                                    if (err) throw err;
-                                    res.sendFile(toPath, { root: './uploads/to' });
+                                    if (err) {
+                                        msg = err.message;
+                                        error = true;
+                                    }
                                 });
                             });
                         });
                     });
                 });
-                res.render('index', {
-                    title: 'Image Converter',
-                    fromExt,
-                    toExt,
-                    convertedFile,
-                });
+            });
+            res.render('index', {
+                title: 'Image Converter',
+                msg,
+                error,
+                fromExt,
+                toExt,
+                convertedFile,
             });
         });
 };

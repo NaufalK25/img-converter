@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script defer type="text/javascript" src="js/index.js"></script>
     </head>
-    <body>
+    <body class="flex h-screen flex-col">
         <header class="pt-2.5 pb-4 border border-black">
             <nav class="flex justify-around">
                 <section id="nav-logo">
@@ -23,7 +23,7 @@
                 </section>
             </nav>
         </header>
-        <main class="flex justify-center items-center flex-col mt-3">
+        <main class="flex items-center flex-col py-10 flex-1">
             <section id="convert-form">
                 <h1 class="font-bold">Image Converter</h1>
                 <form
@@ -32,53 +32,85 @@
                     enctype="multipart/form-data"
                     class="flex flex-col border border-black p-2 space-y-2"
                 >
-                    <section class="flex flex-row space-x-3">
-                        <label for="from-ext" class="cursor-pointer"
-                            >From:
-                        </label>
-                        <select
-                            name="from-ext"
-                            id="from-ext"
-                            class="cursor-pointer"
-                            autofocus
-                        >
-                            <option selected disabled>
-                                --Choose image type--
-                            </option>
-                            <option value="BMP">BMP</option>
-                            <option value="GIF">GIF</option>
-                            <option value="JPEG">JPEG</option>
-                            <option value="PNG">PNG</option>
-                            <option value="TIFF">TIFF</option>
-                        </select>
-                    </section>
-                    <section class="flex flex-row space-x-3">
-                        <label for="to-ext" id="to-ext-label">To: </label>
-                        <select name="to-ext" id="to-ext" disabled>
-                            <option selected disabled>
-                                --Choose image type--
-                            </option>
-                            <option value="BMP">BMP</option>
-                            <option value="GIF">GIF</option>
-                            <option value="JPEG">JPEG</option>
-                            <option value="PNG">PNG</option>
-                            <option value="TIFF">TIFF</option>
-                        </select>
-                    </section>
-                    <section class="flex flex-row space-x-3">
-                        <label for="image" id="image-label"
-                            >Upload Image:
-                        </label>
-                        <input type="file" id="image" name="image" disabled />
-                    </section>
-                    <button
-                        type="submit"
-                        id="convert"
-                        class="border border-black rounded w-fit py-0.5 px-1"
-                        disabled
+                    <table
+                        style="border-spacing: 5px; border-collapse: separate"
                     >
-                        Convert
-                    </button>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="from-ext" class="cursor-pointer"
+                                        >From
+                                    </label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <select
+                                        name="from-ext"
+                                        id="from-ext"
+                                        class="cursor-pointer"
+                                        autofocus
+                                    >
+                                        <option selected disabled>
+                                            --Choose image type--
+                                        </option>
+                                        <option value="BMP">BMP</option>
+                                        <option value="GIF">GIF</option>
+                                        <option value="JPEG">JPEG</option>
+                                        <option value="PNG">PNG</option>
+                                        <option value="TIFF">TIFF</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="to-ext" id="to-ext-label"
+                                        >To
+                                    </label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <select name="to-ext" id="to-ext" disabled>
+                                        <option selected disabled>
+                                            --Choose image type--
+                                        </option>
+                                        <option value="BMP">BMP</option>
+                                        <option value="GIF">GIF</option>
+                                        <option value="JPEG">JPEG</option>
+                                        <option value="PNG">PNG</option>
+                                        <option value="TIFF">TIFF</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="image" id="image-label"
+                                        >Upload Image
+                                    </label>
+                                </td>
+                                <td>:</td>
+                                <td>
+                                    <input
+                                        type="file"
+                                        id="image"
+                                        name="image"
+                                        disabled
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan=3 class="text-right">
+                                    <button
+                                        type="submit"
+                                        id="convert"
+                                        class="border border-black rounded w-fit py-0.5 px-1"
+                                        disabled
+                                    >
+                                        Convert
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
             </section>
             <section id="image-type-description" class="hidden">
@@ -92,7 +124,7 @@
                 </article>
             </section>
         </main>
-        <footer class="text-center mt-3">
+        <footer class="text-center py-3">
             <em>
                 Copyright &copy; 2022 -
                 <a

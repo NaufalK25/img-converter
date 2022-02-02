@@ -23,7 +23,7 @@ fromExt.addEventListener("change", (): void => {
     toExtLabel.classList.add('cursor-pointer');
 
     descriptionSection.classList.remove('hidden');
-    descriptionSection.classList.add(...['flex', 'flex-row', 'border', 'border-black', 'mt-3', 'p-2']);
+    descriptionSection.classList.add(...['flex', 'flex-row', 'border', 'border-black', 'mt-3', 'p-2', 'gap-3', 'flex-wrap', 'w-3/4', 'justify-center']);
 
     const fromDescriptionH2 = <HTMLHeadingElement>document.querySelector('h2#from-description-h2');
     const fromDescriptionP = <HTMLParagraphElement>document.querySelector('p#from-description-p');

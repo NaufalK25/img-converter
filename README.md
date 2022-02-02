@@ -7,7 +7,7 @@ Simple Image Converter build using [NodeJS](https://nodejs.org/en/) and [JIMP](h
 1. Clone the repository
 
 ```
-git clone https://github.com/NaufalK25/travdir-api.git
+git clone https://github.com/NaufalK25/img-converter.git
 ```
 
 2. Install all dependencies including dev dependencies

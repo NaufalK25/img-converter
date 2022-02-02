@@ -1,7 +1,7 @@
 const fromExt = <HTMLSelectElement>document.querySelector("select#from-ext");
 const toExt = <HTMLSelectElement>document.querySelector("select#to-ext");
 const fileInput = <HTMLInputElement>document.querySelector("input#image");
-const convertButton = <HTMLButtonElement>document.querySelector("button#convert");
+const convertButton = <HTMLButtonElement>document.querySelector("button#convert-button");
 
 const descriptionSection = <HTMLDivElement>document.querySelector("section#image-type-description");
 const fromTypeArticle = <HTMLDivElement>document.querySelector("article#from-type-description");
@@ -68,5 +68,6 @@ toExt.addEventListener("change", (): void => {
 fileInput.addEventListener("change", (): void => {
     convertButton.disabled = false;
     convertButton.focus();
-    convertButton.classList.add('cursor-pointer');
+    convertButton.classList.remove(...['text-gray-500', 'bg-gray-100', 'border-gray-500']);
+    convertButton.classList.add(...['cursor-pointer', 'border-black', 'hover:bg-black', "hover:text-white"]);
 });

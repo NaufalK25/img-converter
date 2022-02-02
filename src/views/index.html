@@ -8,7 +8,7 @@
         <script defer type="text/javascript" src="js/index.js"></script>
     </head>
     <body class="flex h-screen flex-col">
-        <header class="pt-2.5 pb-4 border border-black">
+        <header class="pt-2.5 pb-4 border border-black w-auto">
             <nav class="flex justify-around">
                 <section id="nav-logo">
                     <a href="/" class="hover:underline text-xl"
@@ -30,7 +30,7 @@
                     action="/"
                     method="POST"
                     enctype="multipart/form-data"
-                    class="flex flex-col border border-black p-2 space-y-2"
+                    class="flex flex-col border border-black p-2"
                 >
                     <table
                         style="border-spacing: 5px; border-collapse: separate"
@@ -98,11 +98,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan=3 class="text-right">
+                                <td colspan="3" class="text-right">
                                     <button
                                         type="submit"
-                                        id="convert"
-                                        class="border border-black rounded w-fit py-0.5 px-1"
+                                        id="convert-button"
+                                        class="text-gray-500 bg-gray-100 border border-gray-500 rounded py-0.5 px-1"
                                         disabled
                                     >
                                         Convert

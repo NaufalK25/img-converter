@@ -11,9 +11,7 @@
         <header class="pt-2.5 pb-4 border border-black w-auto">
             <nav class="flex justify-around">
                 <section id="nav-logo">
-                    <a href="/" class="hover:underline text-xl"
-                        >Image Converter</a
-                    >
+                    <a href="/" class="hover:underline text-xl"><%= title %></a>
                 </section>
                 <section id="nav-item" class="space-x-2">
                     <a href="#convert-form" class="hover:underline">Convert</a>
@@ -113,6 +111,21 @@
                     </table>
                 </form>
             </section>
+            <% if (convertedFile) { %>
+            <section id="converted-file" class="flex flex-col gap-y-2 py-3">
+                <h3>Result: <%= convertedFile %></h3>
+                <article class="flex flex-row items-center gap-x-3">
+                    <p>From: <%= fromExt %></p>
+                    <p>To: <%= toExt %></p>
+                    <a
+                        href="uploads/to/<%= convertedFile %>"
+                        class="border border-black rounded py-0.5 px-1 hover:bg-black hover:text-white"
+                        download
+                        >Download</a
+                    >
+                </article>
+            </section>
+            <% } %>
             <section id="image-type-description" class="hidden">
                 <article id="from-type-description">
                     <h2 class="font-bold" id="from-description-h2"></h2>

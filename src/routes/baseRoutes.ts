@@ -14,13 +14,19 @@ const storage = multer.diskStorage({
 export const baseRoutes = (app: Express): void => {
     app.route('/')
         .get((req: Request, res: Response): void => {
-            res.sendFile('index.html', { root: './src/views' })
+            res.render('index', {
+                title: 'Image Converter',
+                fromExt: undefined,
+                toExt: undefined,
+                convertedFile: undefined,
+            });
         })
         .post(multer({ storage }).single('image'), (req: Request, res: Response): void => {
             const fromExt = req.body['from-ext'];
             const toExt = req.body['to-ext'];
             const fromPath = `./uploads/from/${req.file?.originalname}`;
-            const toPath = `./uploads/to/${req.file?.originalname.replace(/\..+$/i, `.${toExt.toLowerCase()}`)}`;
+            const convertedFile = req.file?.originalname.replace(/\..+$/i, `.${toExt.toLowerCase()}`);
+            const toPath = `./uploads/to/${convertedFile}`;
             Jimp.read(fromPath, (err: Error | null, image: Jimp): void => {
                 if (err) throw err;
                 image.getBuffer(`image/${fromExt.toLowerCase()}`, (err: Error | null, buffer: Buffer): void => {
@@ -39,7 +45,12 @@ export const baseRoutes = (app: Express): void => {
                         });
                     });
                 });
-                res.redirect('/');
+                res.render('index', {
+                    title: 'Image Converter',
+                    fromExt,
+                    toExt,
+                    convertedFile,
+                });
             });
         });
 };

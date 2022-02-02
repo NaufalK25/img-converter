@@ -23,13 +23,13 @@
         </header>
         <main class="flex items-center flex-col py-10 flex-1">
             <% if (msg) { %>
-            <article
+            <section
                 id="flash-msg"
                 class="flex gap-x-3 <%= (error) ? 'bg-red-300' : 'bg-green-300' %> rounded p-2 border <%= (error) ? 'border-red-300' : 'border-green-300' %>"
             >
                 <p><%= msg %></p>
                 <span class="cursor-pointer" id="close-flash-msg">X</span>
-            </article>
+            </section>
             <% } %>
             <section id="convert-form" class="py-3">
                 <h1 class="font-bold">Image Converter</h1>

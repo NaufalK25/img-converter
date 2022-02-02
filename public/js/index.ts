@@ -75,7 +75,7 @@ fileInput.addEventListener("change", (): void => {
 const closeFlashMsg = <HTMLSpanElement>document.querySelector('span#close-flash-msg');
 
 closeFlashMsg.addEventListener('click', (): void => {
-    const flashMsg = <HTMLDivElement>document.querySelector('article#flash-msg');
+    const flashMsg = <HTMLDivElement>document.querySelector('section#flash-msg');
     flashMsg.classList.remove(...['flex', 'gap-x-3', 'bg-red-300', 'bg-green-300', 'rounded', 'p-2', 'border', 'border-red-300', 'border-green-300']);
     flashMsg.classList.add('hidden');
 })

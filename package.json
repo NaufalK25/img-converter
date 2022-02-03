@@ -4,11 +4,16 @@
     "description": "Image Converter",
     "main": "dist/app.js",
     "scripts": {
+        "build-ts": "tsc",
         "tsw": "tsc -w",
-        "lint": "eslint . --ext .ts",
-        "tw-index": "tailwindcss -i ./public/css/input.css -o ./dist/public/css/index.css --watch",
+        "build-tw": "tailwindcss -i ./public/css/input.css -o ./dist/public/css/index.css",
+        "tww": "tailwindcss -i ./public/css/input.css -o ./dist/public/css/index.css --watch",
+        "postinstall": "npm run build-ts && npm run build-tw",
+        "start": "npm run serve",
+        "serve": "tsc && ts-node app.ts",
         "dev": "tsc && tsnd --respawn --pretty --transpile-only app.ts",
-        "start": "tsc && ts-node app.ts",
+        "watch-ts": "tsc -w",
+        "lint": "eslint . --ext .ts",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [

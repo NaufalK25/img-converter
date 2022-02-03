@@ -39,5 +39,8 @@ npx tsc && npx ts-node app.ts
 ### Credits
 
 -   [oliver-moran](https://github.com/oliver-moran)
+-   [unDraw](https://undraw.co/)
+-   [Canva Color Palette](https://www.canva.com/colors/color-palettes/)
+-   [Google Icons](https://fonts.google.com/icons)
 
 _Copyright © 2022 Muhammad Naufal Kateni_

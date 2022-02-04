@@ -24,8 +24,6 @@ npm install
 npm start
 // or
 npm run start
-// or
-npx tsc && npx ts-node app.ts
 ```
 
 ### Supported Image Types

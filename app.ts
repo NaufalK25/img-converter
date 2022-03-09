@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import morgan from 'morgan';
 import { baseRoutes } from './src/routes/baseRoutes';
 
 // Get all environment variables
@@ -11,7 +10,6 @@ const port = process.env.PORT || 3000;
 const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
 
 // Third Party Middlewares
-app.use(morgan('dev'));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 // Express Middlewares

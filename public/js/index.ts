@@ -1,4 +1,4 @@
-const getImageDescription = (imageType: string): string => {
+const getImageDescription = (imageType: string) => {
     if (imageType === 'BMP') {
         return 'The BMP file format, also known as bitmap image file, device independent bitmap (DIB) file format and bitmap, is a raster graphics image file format used to store bitmap digital images, independently of the display device (such as a graphics adapter), especially on Microsoft Windows and OS/2 operating systems.';
     }
@@ -22,11 +22,11 @@ const toExt = <HTMLSelectElement>document.querySelector("select#to-ext");
 const fileInput = <HTMLInputElement>document.querySelector("input#image");
 const convertButton = <HTMLButtonElement>document.querySelector("button#convert-button");
 
-const descriptionSection = <HTMLDivElement>document.querySelector("section#image-type-description");
-const fromTypeArticle = <HTMLDivElement>document.querySelector("article#from-type-description");
-const toTypeArticle = <HTMLDivElement>document.querySelector('article#to-type-description');
+const descriptionSection = <HTMLElement>document.querySelector("section#image-type-description");
+const fromTypeArticle = <HTMLElement>document.querySelector("article#from-type-description");
+const toTypeArticle = <HTMLElement>document.querySelector('article#to-type-description');
 
-fromExt.addEventListener("change", (): void => {
+fromExt.addEventListener("change", () => {
     const fromExtValue = fromExt.value;
     fileInput.accept = `.${fromExtValue.toLowerCase()}`;
 
@@ -50,7 +50,7 @@ fromExt.addEventListener("change", (): void => {
 
 });
 
-toExt.addEventListener("change", (): void => {
+toExt.addEventListener("change", () => {
     const fromExtOptions = fromExt.querySelectorAll("option");
     fromExtOptions.forEach((option: HTMLOptionElement): void => {
         if (option.value !== '--Choose image type--') {
@@ -71,7 +71,7 @@ toExt.addEventListener("change", (): void => {
     toDescriptionP.innerText = getImageDescription(toExt.value);
 });
 
-fileInput.addEventListener("change", (): void => {
+fileInput.addEventListener("change", () => {
     convertButton.disabled = false;
     convertButton.focus();
     convertButton.classList.remove(...['text-gray-500', 'bg-gray-100', 'border-gray-500']);
@@ -79,7 +79,7 @@ fileInput.addEventListener("change", (): void => {
 });
 
 const closeFlashMsg = <HTMLSpanElement>document.querySelector('span#close-flash-msg');
-const flashMsg = <HTMLDivElement>document.querySelector('section#flash-msg');
+const flashMsg = <HTMLElement>document.querySelector('section#flash-msg');
 
 closeFlashMsg?.addEventListener('click', (): void => {
     flashMsg.classList.remove(...['flex', 'absolute', 'top-2', 'gap-x-3', 'bg-red-200', 'bg-[#EC9EC0]', 'rounded', "p-2", 'border', 'border-red-200', 'border-[#EC9EC0]']);

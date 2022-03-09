@@ -21,6 +21,6 @@ app.use('/uploads', express.static('uploads'));
 baseRoutes(app);
 
 // Start server
-app.listen(port, (): void => {
+app.listen(port, () => {
     console.log(`Image Converter is listening to ${baseUrl}`);
 });

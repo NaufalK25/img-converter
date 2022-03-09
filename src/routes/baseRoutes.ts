@@ -3,17 +3,17 @@ import multer from 'multer';
 import { convertImage, createFolder } from '../helpers/imageHelper';
 
 const storage = multer.diskStorage({
-    destination: (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void): void => {
+    destination: (req, file, cb) => {
         cb(null, './uploads/from');
     },
-    filename: (req: Request, file: Express.Multer.File, cb: (error: Error | null, filename: string) => void): void => {
+    filename: (req, file, cb) => {
         cb(null, file.originalname);
     }
 })
 
-export const baseRoutes = (app: Express): void => {
+export const baseRoutes = (app: Express) => {
     app.route('/')
-        .get((req: Request, res: Response): void => {
+        .get((req, res) => {
             res.render('index', {
                 title: 'Image Converter',
                 msg: undefined,
@@ -23,7 +23,7 @@ export const baseRoutes = (app: Express): void => {
                 convertedFile: undefined,
             });
         })
-        .post(multer({ storage }).single('image'), (req: Request, res: Response): void => {
+        .post(multer({ storage }).single('image'), (req, res) => {
             createFolder('./uploads/from');
             createFolder('uploads/to');
 

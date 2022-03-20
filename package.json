@@ -21,7 +21,7 @@
         "converter"
     ],
     "author": "NaufalK25",
-    "license": "Apache-2.0",
+    "license": "",
     "dependencies": {
         "dotenv": "^15.0.0",
         "ejs": "^3.1.6",
